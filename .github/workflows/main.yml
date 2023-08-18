@@ -19,6 +19,15 @@ jobs:
       with:
         type: sast
 
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v1
+      with:
+        languages: "auto" # Autodetects the languages in the repo or you can specify manually 
+      # Performs the actual analysis
+    
+    - name: Analyze
+      uses: github/codeql-action/analyze@v1    
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
