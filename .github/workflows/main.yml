@@ -14,6 +14,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Run ShiftLeft Scan for SAST
+      uses: shiftleftsecurity/scan-action@master
+      with:
+        type: sast
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
